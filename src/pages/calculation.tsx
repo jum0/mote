@@ -22,7 +22,7 @@ const Calculation = () => {
 
   return (
     <Fragment>
-      <StockInputBar setStockInfo={setStockInfo} />
+      <StockInputBar minMax={stockInfo.priceIndex.minMax} setStockInfo={setStockInfo} />
       <StockTable stockInfo={stockInfo} />
     </Fragment>
   );

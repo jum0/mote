@@ -8,7 +8,7 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps) => (
   <Box backgroundColor="blackAlpha.50">
-    <Container maxWidth="container.md" height="100%" padding="0">
+    <Container maxWidth="container.md" height="100%" padding="16px">
       <main>{children}</main>
       <BottomNavigation />
     </Container>

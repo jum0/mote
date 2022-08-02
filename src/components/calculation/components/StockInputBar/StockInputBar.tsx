@@ -13,6 +13,7 @@ import type { StockInput } from 'domains/stock/stock.type';
 import {
   Box,
   Flex,
+  Grid,
   Input,
   InputGroup,
   InputLeftElement,
@@ -20,14 +21,16 @@ import {
   RangeSliderFilledTrack,
   RangeSliderThumb,
   RangeSliderTrack,
+  Text,
 } from '@chakra-ui/react';
 
 type StockInputBarProps = {
+  minMax: Array<number>;
   setStockInfo: (stockInfo: SetStateAction<StockInput>) => void;
 };
 
 const StockInputBar = (props: StockInputBarProps) => {
-  const { setStockInfo } = props;
+  const { minMax, setStockInfo } = props;
 
   const handlePriceSharesChange = (event: ChangeEvent<HTMLInputElement>) => {
     const key = event.target.name;
@@ -54,37 +57,61 @@ const StockInputBar = (props: StockInputBarProps) => {
   };
 
   return (
-    <Box backgroundColor="white">
-      <Flex>
-        <Flex columnGap="2">
+    <Flex
+      backgroundColor="white"
+      borderRadius="20px"
+      justifyContent="center"
+      alignItems="center"
+      padding={{ base: '16px 16px 8px 16px', sm: '16px' }}
+    >
+      <Grid templateColumns={{ base: '', sm: '1fr 1fr' }} autoRows="1fr" columnGap="20px" rowGap="8px">
+        {/* Input */}
+        <Flex columnGap="8px">
           <InputGroup>
             <InputLeftElement pointerEvents="none" color="gray.300" fontSize="1.2em">
               $
             </InputLeftElement>
-            <Input name="stockPrice" placeholder="가격" type="number" width="120px" onChange={handlePriceSharesChange} />
+            <Input name="stockPrice" placeholder="가격" type="number" onChange={handlePriceSharesChange} />
           </InputGroup>
           <InputGroup>
-            <Input variant="outline" name="shares" placeholder="수량" type="number" width="120px" onChange={handlePriceSharesChange} />
+            <Input variant="outline" name="shares" placeholder="수량" type="number" onChange={handlePriceSharesChange} />
           </InputGroup>
         </Flex>
 
-        <RangeSlider
-          // eslint-disable-next-line jsx-a11y/aria-proptypes
-          aria-label={['min', 'max']}
-          defaultValue={[SLIDER_INITIAL_MIN_VALUE, SLIDER_INITIAL_MAX_VALUE]}
-          min={SLIDER_MIN_VALUE}
-          max={SLIDER_MAX_VALUE}
-          step={SLIDER_STEP}
-          onChangeEnd={handleRangeChange}
-        >
-          <RangeSliderTrack backgroundColor="brand.100">
-            <RangeSliderFilledTrack />
-          </RangeSliderTrack>
-          <RangeSliderThumb index={0} />
-          <RangeSliderThumb index={1} />
-        </RangeSlider>
-      </Flex>
-    </Box>
+        {/* Range Slider */}
+        <Flex alignItems="center">
+          <Flex justifyContent="center" alignItems="center" minWidth="60px">
+            <Text fontSize="md">{minMax[0]}</Text>
+            <Text fontSize="xs" padding="4.5px 0 0 1px">
+              %
+            </Text>
+          </Flex>
+          <Box width="100%" paddingTop="4px">
+            <RangeSlider
+              // eslint-disable-next-line jsx-a11y/aria-proptypes
+              aria-label={['min', 'max']}
+              defaultValue={[SLIDER_INITIAL_MIN_VALUE, SLIDER_INITIAL_MAX_VALUE]}
+              min={SLIDER_MIN_VALUE}
+              max={SLIDER_MAX_VALUE}
+              step={SLIDER_STEP}
+              onChange={handleRangeChange}
+            >
+              <RangeSliderTrack backgroundColor="brand.100">
+                <RangeSliderFilledTrack />
+              </RangeSliderTrack>
+              <RangeSliderThumb index={0} />
+              <RangeSliderThumb index={1} />
+            </RangeSlider>
+          </Box>
+          <Flex justifyContent="center" alignItems="center" minWidth="60px">
+            <Text fontSize="md">{minMax[1]}</Text>
+            <Text fontSize="xs" padding="4.5px 0 0 1px">
+              %
+            </Text>
+          </Flex>
+        </Flex>
+      </Grid>
+    </Flex>
   );
 };
 export default StockInputBar;
