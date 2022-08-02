@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 
 import type { StockInput } from 'domains/stock/stock.type';
 
@@ -9,6 +9,8 @@ import {
   SLIDER_STEP,
 } from 'components/calculation/components/StockInputBar/StockInputBar.constant';
 import StockTable from 'components/calculation/components/StockTable';
+
+import { Flex } from '@chakra-ui/react';
 
 const Calculation = () => {
   const [stockInfo, setStockInfo] = useState<StockInput>({
@@ -21,10 +23,10 @@ const Calculation = () => {
   });
 
   return (
-    <Fragment>
+    <Flex flexDirection="column" rowGap="12px">
       <StockInputBar minMax={stockInfo.priceIndex.minMax} setStockInfo={setStockInfo} />
       <StockTable stockInfo={stockInfo} />
-    </Fragment>
+    </Flex>
   );
 };
 
