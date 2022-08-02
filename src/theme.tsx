@@ -1,31 +1,25 @@
-import { extendTheme } from '@chakra-ui/react';
+import { extendTheme, withDefaultColorScheme } from '@chakra-ui/react';
 
-const fonts = { mono: `'Menlo', monospace` };
-
-const theme = extendTheme({
-  semanticTokens: {
+const theme = extendTheme(
+  {
     colors: {
-      text: {
-        default: '#16161D',
-        _dark: '#ade3b8',
-      },
-      heroGradientStart: {
-        default: '#7928CA',
-        _dark: '#e3a7f9',
-      },
-      heroGradientEnd: {
-        default: '#FF0080',
-        _dark: '#fbec8f',
+      // purple과 동일
+      brand: {
+        100: '#E9D8FD',
+        600: '#6B46C1',
       },
     },
-    radii: {
-      button: '12px',
+    components: {
+      Input: {
+        defaultProps: {
+          focusBorderColor: 'brand.600',
+        },
+      },
     },
   },
-  colors: {
-    black: '#16161D',
-  },
-  fonts,
-});
+  withDefaultColorScheme({
+    colorScheme: 'purple',
+  }),
+);
 
 export default theme;

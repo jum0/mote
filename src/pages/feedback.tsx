@@ -1,3 +1,3 @@
-const feedback = () => <div>feedback</div>;
+const Feedback = () => <div>feedback</div>;
 
-export default feedback;
+export default Feedback;
