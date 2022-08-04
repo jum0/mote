@@ -10,7 +10,7 @@ import {
 } from 'components/calculation/components/StockInputBar/StockInputBar.constant';
 import StockTable from 'components/calculation/components/StockTable';
 
-import { Flex } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 
 const Calculation = () => {
   const [stockInfo, setStockInfo] = useState<StockInput>({
@@ -23,10 +23,12 @@ const Calculation = () => {
   });
 
   return (
-    <Flex flexDirection="column" rowGap="12px">
-      <StockInputBar minMax={stockInfo.priceIndex.minMax} setStockInfo={setStockInfo} />
-      <StockTable stockInfo={stockInfo} />
-    </Flex>
+    <Box padding="16px 16px 68px 16px">
+      <Flex flexDirection="column" rowGap="12px">
+        <StockInputBar minMax={stockInfo.priceIndex.minMax} setStockInfo={setStockInfo} />
+        <StockTable stockInfo={stockInfo} />
+      </Flex>
+    </Box>
   );
 };
 
