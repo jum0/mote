@@ -25,7 +25,7 @@ const Layout = ({ children }: LayoutProps) => (
     <Container maxWidth="container.md" padding="0">
       <Grid templateRows={`auto ${COMMON_BOTTOM_NAVIGATION_HEIGHT}px`}>
         <GridItem overflow="auto">
-          <Box height={`calc(100vh - ${COMMON_BOTTOM_NAVIGATION_HEIGHT}px)`}>{children}</Box>
+          <Box height="100%">{children}</Box>
         </GridItem>
         <GridItem>
           <BottomNavigation />

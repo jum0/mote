@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import type { SpreadSheets } from 'domains/spreadsheets/spreadsheets.type';
@@ -6,7 +6,8 @@ import * as Mapper from 'domains/spreadsheets/spreadsheets.mapper';
 
 import AutoResizeTextarea from 'components/feedback/AutoResizeTextarea';
 
-import { Box, Button, Flex, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, Icon, Text } from '@chakra-ui/react';
+import { AiOutlineMail } from 'react-icons/ai';
 
 const Feedback = () => {
   const {
@@ -21,12 +22,15 @@ const Feedback = () => {
       content: '',
     },
   });
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const resetForm = useCallback(() => {
     reset({ content: '', createdAt: '' });
   }, [reset]);
 
   const onSubmit = async (data: SpreadSheets) => {
+    setIsSubmitted(true);
+
     const response = await fetch('/api/spreadsheets', {
       method: 'POST',
       headers: {
@@ -40,6 +44,33 @@ const Feedback = () => {
       resetForm();
     }
   };
+
+  const handleConfirmButtonClick = useCallback(() => {
+    setIsSubmitted(false);
+  }, []);
+
+  if (isSubmitted) {
+    return (
+      <Flex height="100%" flexDirection="column" backgroundColor="white" padding="16px 24px 60px 24px" justifyContent="space-between">
+        <Box>
+          <Text fontSize="2xl" fontWeight="extrabold">
+            의견 제출을 잘 끝냈어요.
+          </Text>
+          <Text fontSize="2xl" fontWeight="extrabold">
+            소중한 의견 감사해요.
+          </Text>
+        </Box>
+        <Box display="flex" justifyContent="center">
+          <Icon as={AiOutlineMail} width={{ base: '120px', sm: '160px' }} height={{ base: '120px', sm: '160px' }} color="purple.400" />
+        </Box>
+        <Box>
+          <Button width="100%" onClick={handleConfirmButtonClick}>
+            확인
+          </Button>
+        </Box>
+      </Flex>
+    );
+  }
 
   return (
     <Flex height="100%" flexDirection="column" backgroundColor="white" padding="16px 24px 0 24px" rowGap="4px">
