@@ -23,7 +23,7 @@ const Calculation = () => {
   });
 
   return (
-    <Box padding="16px 16px 68px 16px">
+    <Box padding="12px 16px">
       <Flex flexDirection="column" rowGap="12px">
         <StockInputBar minMax={stockInfo.priceIndex.minMax} setStockInfo={setStockInfo} />
         <StockTable stockInfo={stockInfo} />

@@ -1,0 +1,2 @@
+export const COMMON_BORDER_RADIUS = 20;
+export const COMMON_BOTTOM_NAVIGATION_HEIGHT = 56;

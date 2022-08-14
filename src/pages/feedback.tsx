@@ -42,8 +42,8 @@ const Feedback = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <Flex height="100vh" flexDirection="column" backgroundColor="white" padding="16px 24px 0 24px" rowGap="4px">
+    <Flex height="100%" flexDirection="column" backgroundColor="white" padding="16px 24px 0 24px" rowGap="4px">
+      <form onSubmit={handleSubmit(onSubmit)}>
         <Box>
           <Text fontSize="2xl" fontWeight="extrabold">
             원하는 기능을 알려주세요.
@@ -53,11 +53,11 @@ const Feedback = () => {
           </Text>
           <AutoResizeTextarea {...register('content')} placeholder="예) 원화로 계산하고 싶어요." margin="16px 0 16px" />
         </Box>
-        <Button type="submit" disabled={!isDirty}>
+        <Button type="submit" width="100%" disabled={!isDirty}>
           의견 제출하기
         </Button>
-      </Flex>
-    </form>
+      </form>
+    </Flex>
   );
 };
 

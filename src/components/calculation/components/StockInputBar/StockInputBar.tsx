@@ -24,6 +24,8 @@ import {
   Text,
 } from '@chakra-ui/react';
 
+import { COMMON_BORDER_RADIUS } from 'components/_common/constants/styles';
+
 type StockInputBarProps = {
   minMax: Array<number>;
   setStockInfo: (stockInfo: SetStateAction<StockInput>) => void;
@@ -59,7 +61,7 @@ const StockInputBar = (props: StockInputBarProps) => {
   return (
     <Flex
       backgroundColor="white"
-      borderRadius="20px"
+      borderRadius={`${COMMON_BORDER_RADIUS}`}
       justifyContent="center"
       alignItems="center"
       padding={{ base: '16px 16px 8px 16px', sm: '16px' }}
