@@ -18,14 +18,13 @@ const Feedback = () => {
   } = useForm({
     mode: 'onSubmit',
     defaultValues: {
-      createdAt: '',
       content: '',
     },
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const resetForm = useCallback(() => {
-    reset({ content: '', createdAt: '' });
+    reset({ content: '' });
   }, [reset]);
 
   const onSubmit = async (data: SpreadSheets) => {
@@ -37,7 +36,7 @@ const Feedback = () => {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(Mapper.addCreatedAt_trimmedContent(data)),
+      body: JSON.stringify(Mapper.trimContent(data)),
     });
 
     if (response.status === 201) {
