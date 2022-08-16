@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import type { SpreadSheets } from 'domains/spreadsheets/spreadsheets.type';
 import * as Mapper from 'domains/spreadsheets/spreadsheets.mapper';
 
-import AutoResizeTextarea from 'components/feedback/AutoResizeTextarea';
+import AutoResizeTextarea from 'components/feedback/components/AutoResizeTextarea';
 
 import { Box, Button, Flex, Icon, Text } from '@chakra-ui/react';
 import { AiOutlineMail } from 'react-icons/ai';
