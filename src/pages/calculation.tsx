@@ -9,8 +9,11 @@ import {
   SLIDER_STEP,
 } from 'components/calculation/components/StockInputBar/StockInputBar.constant';
 import StockTable from 'components/calculation/components/StockTable';
+import { developerTools } from 'components/calculation/utils';
 
 import { Box, Flex } from '@chakra-ui/react';
+
+developerTools();
 
 const Calculation = () => {
   const [stockInfo, setStockInfo] = useState<StockInput>({
