@@ -1,17 +1,15 @@
 import { useState } from 'react';
 
+import { Box, Flex } from '@chakra-ui/react';
+
 import type { StockInput } from 'domains/stock/stock.type';
 
 import StockInputBar from 'components/calculation/StockInputBar';
-import {
-  SLIDER_INITIAL_MAX_VALUE,
-  SLIDER_INITIAL_MIN_VALUE,
-  SLIDER_STEP,
-} from 'components/calculation/StockInputBar/StockInputBar.constant';
 import StockTable from 'components/calculation/StockTable';
+
 import { developerTools } from 'utils/calculation';
 
-import { Box, Flex } from '@chakra-ui/react';
+import { SLIDER_INITIAL_MAX_VALUE, SLIDER_INITIAL_MIN_VALUE, SLIDER_STEP } from 'constants/calculation';
 
 developerTools();
 

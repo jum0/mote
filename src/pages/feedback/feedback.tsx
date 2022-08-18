@@ -1,15 +1,16 @@
 import { useCallback, useState } from 'react';
+
 import { useForm } from 'react-hook-form';
 
-import * as Styled from './feedback.styled';
+import { Box, Button, Flex, Text } from '@chakra-ui/react';
+import { AiOutlineMail } from 'react-icons/ai';
 
 import type { SpreadSheets } from 'domains/spreadsheets/spreadsheets.type';
 import * as Mapper from 'domains/spreadsheets/spreadsheets.mapper';
 
 import AutoResizeTextarea from 'components/feedback/AutoResizeTextarea';
 
-import { Box, Button, Flex, Text } from '@chakra-ui/react';
-import { AiOutlineMail } from 'react-icons/ai';
+import * as Styled from './feedback.styled';
 
 const Feedback = () => {
   const {

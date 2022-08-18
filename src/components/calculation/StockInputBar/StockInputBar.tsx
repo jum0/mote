@@ -1,17 +1,6 @@
 import type { ChangeEvent, SetStateAction } from 'react';
 
 import {
-  SLIDER_INITIAL_MAX_VALUE,
-  SLIDER_INITIAL_MIN_VALUE,
-  SLIDER_MAX_VALUE,
-  SLIDER_MIN_DISTANCE,
-  SLIDER_MIN_VALUE,
-  SLIDER_STEP,
-} from './StockInputBar.constant';
-
-import type { StockInput } from 'domains/stock/stock.type';
-
-import {
   Box,
   Flex,
   Grid,
@@ -25,7 +14,17 @@ import {
   Text,
 } from '@chakra-ui/react';
 
+import type { StockInput } from 'domains/stock/stock.type';
+
 import { COMMON_BORDER_RADIUS } from 'constants/_common';
+import {
+  SLIDER_INITIAL_MAX_VALUE,
+  SLIDER_INITIAL_MIN_VALUE,
+  SLIDER_MAX_VALUE,
+  SLIDER_MIN_DISTANCE,
+  SLIDER_MIN_VALUE,
+  SLIDER_STEP,
+} from 'constants/calculation';
 
 type StockInputBarProps = {
   minMax: Array<number>;

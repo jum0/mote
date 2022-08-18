@@ -1,10 +1,10 @@
-import * as Styled from './Layout.styled';
+import { Box, Container, GridItem } from '@chakra-ui/react';
 
 import BottomNavigation from '../BottomNavigation';
 
-import { Box, Container, GridItem } from '@chakra-ui/react';
-
 import { COMMON_BOTTOM_NAVIGATION_HEIGHT } from 'constants/_common';
+
+import * as Styled from './Layout.styled';
 
 type LayoutProps = {
   children: React.ReactNode;

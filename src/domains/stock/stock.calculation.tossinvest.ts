@@ -1,3 +1,5 @@
+// 파일 위치 보류
+
 import type { StockInfo } from './stock.type';
 
 /*

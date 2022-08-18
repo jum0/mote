@@ -1,7 +1,7 @@
-import ActiveLinkIcon from '../ActiveLinkIcon';
-
 import { Flex } from '@chakra-ui/react';
 import { AiFillCalculator, AiFillEdit } from 'react-icons/ai';
+
+import ActiveLinkIcon from '../ActiveLinkIcon';
 
 import { COMMON_BORDER_RADIUS } from 'constants/_common';
 

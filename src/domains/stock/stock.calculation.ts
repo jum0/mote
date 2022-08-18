@@ -1,3 +1,5 @@
+// 파일 위치 보류
+
 import type { StockInput, StockInfo } from './stock.type';
 import * as TossInvest from './stock.calculation.tossinvest';
 

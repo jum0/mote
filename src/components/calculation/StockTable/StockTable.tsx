@@ -1,7 +1,7 @@
+import { Table, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react';
+
 import type { StockInput } from 'domains/stock/stock.type';
 import * as Cal from 'domains/stock/stock.calculation';
-
-import { Table, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react';
 
 type StockTableProps = {
   stockInfo: StockInput;

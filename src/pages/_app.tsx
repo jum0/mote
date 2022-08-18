@@ -3,11 +3,12 @@ import Script from 'next/script';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
+import { ChakraProvider } from '@chakra-ui/react';
+
 import Layout from 'components/_common/Layout';
+
 import theme from '../theme';
 import * as ga from '../../lib/google-analytics';
-
-import { ChakraProvider } from '@chakra-ui/react';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
