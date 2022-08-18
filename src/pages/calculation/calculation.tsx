@@ -2,14 +2,14 @@ import { useState } from 'react';
 
 import type { StockInput } from 'domains/stock/stock.type';
 
-import StockInputBar from 'components/calculation/components/StockInputBar';
+import StockInputBar from 'components/calculation/StockInputBar';
 import {
   SLIDER_INITIAL_MAX_VALUE,
   SLIDER_INITIAL_MIN_VALUE,
   SLIDER_STEP,
-} from 'components/calculation/components/StockInputBar/StockInputBar.constant';
-import StockTable from 'components/calculation/components/StockTable';
-import { developerTools } from 'components/calculation/utils';
+} from 'components/calculation/StockInputBar/StockInputBar.constant';
+import StockTable from 'components/calculation/StockTable';
+import { developerTools } from 'utils/calculation';
 
 import { Box, Flex } from '@chakra-ui/react';
 

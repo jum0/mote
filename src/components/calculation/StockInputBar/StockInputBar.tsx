@@ -25,7 +25,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 
-import { COMMON_BORDER_RADIUS } from 'components/_common/constants/styles';
+import { COMMON_BORDER_RADIUS } from 'constants/_common';
 
 type StockInputBarProps = {
   minMax: Array<number>;

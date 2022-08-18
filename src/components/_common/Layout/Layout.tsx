@@ -4,7 +4,7 @@ import BottomNavigation from '../BottomNavigation';
 
 import { Box, Container, GridItem } from '@chakra-ui/react';
 
-import { COMMON_BOTTOM_NAVIGATION_HEIGHT } from 'components/_common/constants/styles';
+import { COMMON_BOTTOM_NAVIGATION_HEIGHT } from 'constants/_common';
 
 type LayoutProps = {
   children: React.ReactNode;

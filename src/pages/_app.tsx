@@ -3,7 +3,7 @@ import Script from 'next/script';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
-import Layout from 'components/_common/components/Layout';
+import Layout from 'components/_common/Layout';
 import theme from '../theme';
 import * as ga from '../../lib/google-analytics';
 

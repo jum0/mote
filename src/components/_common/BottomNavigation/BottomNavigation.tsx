@@ -3,7 +3,7 @@ import ActiveLinkIcon from '../ActiveLinkIcon';
 import { Flex } from '@chakra-ui/react';
 import { AiFillCalculator, AiFillEdit } from 'react-icons/ai';
 
-import { COMMON_BORDER_RADIUS } from 'components/_common/constants/styles';
+import { COMMON_BORDER_RADIUS } from 'constants/_common';
 
 const BottomNavigation = () => (
   <Flex
