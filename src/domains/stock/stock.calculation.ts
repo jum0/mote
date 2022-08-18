@@ -1,19 +1,13 @@
 import type { StockInput, StockInfo } from './stock.type';
 import * as TossInvest from './stock.calculation.tossinvest';
 
-const getPriceIndexList = (maximum: number, minimum: number, interval: number): Array<StockInfo> => {
-  return Array.from(
-    {
-      length: Math.abs(Number((maximum / interval).toFixed())) + Math.abs(Number((minimum / interval).toFixed())) + 1,
-    },
-    (_, i) => ({
-      priceIndex: Number((maximum / 100 - (interval * i) / 100).toFixed(3)),
-      stockPrice: 0,
-      profit: 0,
-      commission: 0,
-    }),
-  );
-};
+const getPriceIndexList = (maximum: number, minimum: number, interval: number): Array<StockInfo> =>
+  Array.from({ length: (maximum - minimum) / interval + 1 }, (_, i) => ({
+    priceIndex: Number((maximum / 100 - (interval * i) / 100).toFixed(3)),
+    stockPrice: 0,
+    profit: 0,
+    commission: 0,
+  }));
 
 const getStockPriceList = (priceIndexList: Array<StockInfo>, stockPrice: number): Array<StockInfo> =>
   priceIndexList.map((info) => ({
