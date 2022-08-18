@@ -4,6 +4,7 @@ import {
   SLIDER_INITIAL_MAX_VALUE,
   SLIDER_INITIAL_MIN_VALUE,
   SLIDER_MAX_VALUE,
+  SLIDER_MIN_DISTANCE,
   SLIDER_MIN_VALUE,
   SLIDER_STEP,
 } from './StockInputBar.constant';
@@ -83,7 +84,7 @@ const StockInputBar = (props: StockInputBarProps) => {
         {/* Range Slider */}
         <Flex alignItems="center">
           <Flex justifyContent="center" alignItems="center" minWidth="60px">
-            <Text fontSize="md">{minMax[0]}</Text>
+            <Text fontSize="md">{minMax[0].toFixed(1)}</Text>
             <Text fontSize="xs" padding="4.5px 0 0 1px">
               %
             </Text>
@@ -96,6 +97,7 @@ const StockInputBar = (props: StockInputBarProps) => {
               min={SLIDER_MIN_VALUE}
               max={SLIDER_MAX_VALUE}
               step={SLIDER_STEP}
+              minStepsBetweenThumbs={SLIDER_MIN_DISTANCE}
               onChange={handleRangeChange}
             >
               <RangeSliderTrack backgroundColor="brand.100">
@@ -106,7 +108,7 @@ const StockInputBar = (props: StockInputBarProps) => {
             </RangeSlider>
           </Box>
           <Flex justifyContent="center" alignItems="center" minWidth="60px">
-            <Text fontSize="md">{minMax[1]}</Text>
+            <Text fontSize="md">{minMax[1].toFixed(1)}</Text>
             <Text fontSize="xs" padding="4.5px 0 0 1px">
               %
             </Text>
