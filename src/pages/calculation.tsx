@@ -24,8 +24,8 @@ const Calculation = () => {
   });
 
   return (
-    <Box padding="12px 16px">
-      <Flex flexDirection="column" rowGap="12px">
+    <Box padding="12px 16px" height="100%">
+      <Flex flexDirection="column" rowGap="12px" height="100%">
         <StockInputBar minMax={stockInfo.priceIndex.minMax} setStockInfo={setStockInfo} />
         <StockTable stockInfo={stockInfo} />
       </Flex>
