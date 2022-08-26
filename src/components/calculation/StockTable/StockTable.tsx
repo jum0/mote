@@ -1,9 +1,20 @@
-import { Flex, Table, Tbody, Td, Text, Th, Thead, Tr } from '@chakra-ui/react';
+import styled from '@emotion/styled';
+import { Flex, Table, Tbody, Td as BaseTd, Text, Th as BaseTh, Thead, Tr } from '@chakra-ui/react';
 
 import type { StockInput } from 'domains/stock/stock.type';
 import * as Cal from 'domains/stock/stock.calculation';
 
 import { COMMON_BORDER_RADIUS } from 'constants/_common';
+
+const Th = styled(BaseTh)`
+  padding-left: 2px;
+  padding-right: 2px;
+`;
+
+const Td = styled(BaseTd)`
+  padding-left: 2px;
+  padding-right: 2px;
+`;
 
 type StockTableProps = {
   stockInfo: StockInput;
@@ -30,10 +41,10 @@ const StockTable = (props: StockTableProps) => {
         <Thead>
           <Tr height="40px">
             <Th textAlign="center" whiteSpace="nowrap" paddingX="12px">
-              등락률 (%)
+              등락률(%)
             </Th>
             <Th textAlign="center" whiteSpace="nowrap">
-              가격 ($)
+              가격
             </Th>
           </Tr>
         </Thead>
@@ -54,27 +65,35 @@ const StockTable = (props: StockTableProps) => {
       <Table colorScheme="gray" size="sm" variant="simple" backgroundColor="white" borderRadius="20px" width="100%">
         <Thead>
           <Tr height="40px">
-            <Th textAlign="center" whiteSpace="nowrap" paddingX="12px">
-              등락률 (%)
+            <BaseTh whiteSpace="nowrap" textAlign="center" width="10%" padding="4px 2px 4px 12px">
+              등락률(%)
+            </BaseTh>
+            <Th whiteSpace="nowrap" isNumeric>
+              매입단가
             </Th>
             <Th whiteSpace="nowrap" isNumeric>
-              가격 ($)
+              매입금액
             </Th>
             <Th whiteSpace="nowrap" isNumeric>
-              순수익 ($)
+              순수익
             </Th>
-            <Th whiteSpace="nowrap" isNumeric>
-              수수료 ($)
-            </Th>
+            <BaseTh whiteSpace="nowrap" isNumeric padding="4px 12px 4px 2px">
+              수수료
+            </BaseTh>
           </Tr>
         </Thead>
         <Tbody>
           {data.map((row) => (
             <Tr key={row.priceIndex}>
-              <Td textAlign="center">{Number((100 * row.priceIndex).toFixed(1))}</Td>
+              <BaseTd textAlign="center" padding="8px 2px 8px 12px">
+                {Number((100 * row.priceIndex).toFixed(1))}
+              </BaseTd>
               <Td isNumeric>{row.stockPrice}</Td>
+              <Td isNumeric>{row.purchaseAmount}</Td>
               <Td isNumeric>{row.profit}</Td>
-              <Td isNumeric>{row.commission}</Td>
+              <BaseTd isNumeric padding="8px 12px 8px 2px">
+                {row.commission}
+              </BaseTd>
             </Tr>
           ))}
         </Tbody>

@@ -10,6 +10,7 @@ export type StockInput = {
 export type StockInfo = {
   priceIndex: number;
   stockPrice: number;
+  purchaseAmount: number;
   profit: number;
   commission: number;
 };

@@ -7,6 +7,7 @@ const getPriceIndexList = (maximum: number, minimum: number, interval: number): 
   Array.from({ length: (maximum - minimum) / interval + 1 }, (_, i) => ({
     priceIndex: Number((maximum / 100 - (interval * i) / 100).toFixed(3)),
     stockPrice: 0,
+    purchaseAmount: 0,
     profit: 0,
     commission: 0,
   }));
@@ -43,6 +44,12 @@ const getProfitCommissionList = (stockPriceList: Array<StockInfo>, stockPrice: n
   return profitCommissionList;
 };
 
+const getPurchaseAmountList = (profitCommissionList: Array<StockInfo>, shares: number): Array<StockInfo> =>
+  profitCommissionList.map((stockInfo) => ({
+    ...stockInfo,
+    purchaseAmount: Number((stockInfo.stockPrice * shares).toFixed(2)),
+  }));
+
 export const result = (data: StockInput): Array<StockInfo> => {
   // 가격 지수별 list 생성
   const priceIndexList = getPriceIndexList(data.priceIndex.minMax[1], data.priceIndex.minMax[0], data.priceIndex.interval);
@@ -53,5 +60,8 @@ export const result = (data: StockInput): Array<StockInfo> => {
   // 지수별 수익(profit)과 수수료(commission) 리스트 생성
   const profitCommissionList = getProfitCommissionList(stockPriceList, data.stockPrice, data.shares);
 
-  return profitCommissionList;
+  // 매입 금액(purchaseAmount) 리스트 생성
+  const purchaseAmountList = getPurchaseAmountList(profitCommissionList, data.shares);
+
+  return purchaseAmountList;
 };
