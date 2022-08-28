@@ -30,6 +30,8 @@ const Feedback = () => {
   }, [reset]);
 
   const onSubmit = async (data: SpreadSheets) => {
+    const submitStartTime = performance.now();
+
     setIsSubmitted(true);
 
     const response = await fetch('/api/spreadsheets', {
@@ -43,6 +45,9 @@ const Feedback = () => {
 
     if (response.status === 201) {
       resetForm();
+
+      const submitEndTime = performance.now();
+      console.log('submit time', submitEndTime - submitStartTime);
     }
   };
 
